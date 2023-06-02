@@ -1,14 +1,12 @@
 from time import time
 from typing import List, Optional
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
 
 from fastapi import BackgroundTasks, FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-app = FastAPI(
-    servers=[{"url": "https://fastapilangchain-1-w0858112.deta.app"}]
-)
+app = FastAPI(servers=[{"url": "https://fastapilangchain-1-w0858112.deta.app"}])
 
 
 app.add_middleware(
@@ -102,4 +100,4 @@ async def delete_todo(id: int):
 
 @app.get("/api-docs")
 async def get_openapi_yaml():
-    return FileResponse('openapi.yaml', media_type='application/x-yaml')
+    return FileResponse("openapi.yaml", media_type="application/x-yaml")

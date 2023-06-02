@@ -1,8 +1,11 @@
-from langchain.llms import OpenAI
-from langchain.requests import RequestsWrapper
+import requests
 from langchain.agents.agent_toolkits.openapi import planner
 from langchain.agents.agent_toolkits.openapi.spec import reduce_openapi_spec
-import requests
+from langchain.llms import OpenAI
+from langchain.requests import RequestsWrapper
+from dotenv import find_dotenv, load_dotenv
+
+load_dotenv(find_dotenv())
 
 url = "https://fastapilangchain-1-w0858112.deta.app/openapi.json"
 response = requests.get(url)

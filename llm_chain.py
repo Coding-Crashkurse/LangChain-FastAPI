@@ -1,10 +1,10 @@
-import os
-
 from langchain.chains import OpenAPIEndpointChain
 from langchain.llms import OpenAI
 from langchain.requests import Requests
 from langchain.tools import APIOperation, OpenAPISpec
+from dotenv import find_dotenv, load_dotenv
 
+load_dotenv(find_dotenv())
 
 url = "https://fastapilangchain-1-w0858112.deta.app/openapi.json"
 
