@@ -98,3 +98,8 @@ async def delete_todo(id: int):
             del todos[index]
             return
     raise HTTPException(status_code=404, detail="Item not found")
+
+
+@app.get("/api-docs")
+async def get_openapi_yaml():
+    return FileResponse('openapi.yaml', media_type='application/x-yaml')
